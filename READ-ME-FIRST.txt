@@ -1,0 +1,47 @@
+TRAFFIC-LIGHT CONTROL PLATFORM
+==============================
+
+TO START:  double-click  Start-TrafficLight.bat
+           A black window opens and the browser shows the app.
+
+TO STOP:   double-click  Stop-TrafficLight.bat
+           (or simply close the black window)
+
+TO UPDATE: double-click  Update.bat   (needs internet)
+
+DESKTOP SHORTCUTS (optional, recommended):
+  double-click  Install-Shortcuts.bat  once. It puts
+  "Start Traffic Lights" and "Stop Traffic Lights" on the Desktop.
+  You can then leave this folder where it is and just use the Desktop icons.
+  (Do NOT move the .bat files out of this folder - move the shortcuts instead.)
+
+Log in using the demo accounts shown on the sign-in page.
+Keep the black window open while you use the app.
+
+WI-FI OR USB:
+  By default the lights connect over WI-FI (the ESP-01 module, no cable to
+  this laptop - the board is powered by its wall adapter).
+  For the Wi-Fi link to work:
+    - this laptop must be on the SAME Wi-Fi network as the lights;
+    - the ESP-01 must be programmed with this laptop's IP address. The black
+      window shows it ("this laptop's IP: 192.168.x.x"). If it changed, the
+      ESP has to be re-programmed (see docs/WIFI-ESP01-SETUP.md in the source repo);
+    - the first time, Windows Firewall asks about "mosquitto": tick BOTH
+      Private and Public networks, then Allow (needs admin once).
+  To use the USB cable instead: open Start-TrafficLight.bat in Notepad,
+  change   set "LINK=WIFI"   to   set "LINK=USB"   and save.
+
+In USB mode the port (COMx) is found AUTOMATICALLY - you do not need to set it.
+
+------------------------------------------------------------
+If the traffic lights do not respond:
+  1. Check the controller board's USB cable is plugged in, then start again
+     (the port is detected each time the app starts).
+  2. Only if it still fails: find the port in Windows
+     "Device Manager > Ports (COM & LPT)"  (e.g. COM5),
+     open Start-TrafficLight.bat in Notepad and set that line to:
+         set "COM_PORT=COM5"
+     Save, then start again.
+
+Nothing else needs to be installed on this laptop.
+------------------------------------------------------------
